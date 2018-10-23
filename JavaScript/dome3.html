@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>字符串方法示例</title>
+</head>
+<body>
+    <div class="text1">
+        <h3>过滤问候留言</h3>
+        <ul></ul>
+    </div>
+
+    <div class="text2">
+        <h3>大写修正</h3>
+        <ul></ul>
+    </div>
+
+    <div class="text3">
+        <h3>从原先部分得到新字符串</h3>
+        <p>阵列包含一堆字符串，其中包含有关英格兰北部火车站的信息。<br>
+        字符串是包含三字母站代码的数据项，后面是一些机器可读数据，后跟分号，后跟可读站名。</p>
+        <ul></ul>
+    </div>
+    <script>
+        //text 1
+        var list = document.querySelector('.text1 ul');
+        list.innerHTML = '';
+        var greetings = [
+            'Happy Birthday!',
+            'Merry Christmas my love',
+            'A happy Christmas to all the family',
+            'You\'re all I want for Christmas',
+            'Get well soon'
+        ];
+
+        for (var i = 0; i < greetings.length; i++) {
+            var input = greetings[i];
+            //查找数组中的字符串是否有Christmas，如果输出不等于Christmas
+            if (greetings[i].indexOf('Christmas') !== -1 ) {
+                var result = input;
+                var listItem = document.createElement('li');
+                listItem.textContent = result;
+                list.appendChild(listItem);
+            }
+        }
+        //text 1  --end
+        
+        //text 2
+        var list = document.querySelector('.text2 ul');
+            list.innerHTML = '';
+            var cities = [
+                'lonDon',
+                'ManCHESTer', 
+                'BiRmiNGHAM', 
+                'liVERpoOL'
+            ];
+
+            for (var i = 0; i < cities.length; i++) {
+                var input = cities[i];
+                // write your code just below here
+                var lower = input.toLowerCase();
+                var firstLetter = lower.slice(0, 1);
+                var capitalized = lower.replace(firstLetter, firstLetter.toUpperCase());
+                var result = capitalized;
+                var listItem = document.createElement('li');
+                listItem.textContent = result;
+                list.appendChild(listItem);
+            }
+        //text 2  --end
+        
+        //text 3
+        var list = document.querySelector('.text3 ul');
+            list.innerHTML = '';
+            var stations = [
+                'MAN675847583748sjt567654;Manchester Piccadilly',
+                'GNF576746573fhdg4737dh4;Greenfield',
+                'LIV5hg65hd737456236dch46dg4;Liverpool Lime Street',
+                'SYB4f65hf75f736463;Stalybridge',
+                'HUD5767ghtyfyr4536dh45dg45dg3;Huddersfield'
+            ];
+
+            for (var i = 0; i < stations.length; i++) {
+                var input = stations[i];
+                // 提取三个字母的站代码并将其存储在一个新的变量中。  
+                var code = input.slice(0,3);
+                // 查找分号的字符索引号。
+                var semiC = input.indexOf(';');
+                // 使用分号字符索引号作为参考点提取人可读的站名，并将其存储在新变量中。
+                var name = input.slice(semiC + 1);
+                // 连接两个新的变量和一个字符串文字，使最终的字符串。
+                var final = code + ': ' + name;
+                // 将结果变量的值更改为等于最终的字符串，而不是输入。
+                var result = final;
+                //var result = input;
+                var listItem = document.createElement('li');
+                listItem.textContent = result;
+                list.appendChild(listItem);
+            }
+        //text 3  --end
+    </script>
+</body>
+</html>
