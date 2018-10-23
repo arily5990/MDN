@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>逻辑语句的判断</title>
+</head>
+<body>
+    <button>Start machine</button>
+    <p>The machine is stopped.</p>
+
+    <script>
+        var btn = document.querySelector('button');
+        var txt = document.querySelector('p');
+
+        btn.addEventListener('click', updateBth);
+
+        function updateBth() {
+            if (btn.textContent === 'Start machine') {
+                btn.textContent = 'Stop machine';
+                txt.textContent = 'The machine has started!';
+            } else {
+                btn.textContent = 'Start machine';
+                txt.textContent = 'The machine is stopped.';
+            }
+        }
+    </script>
+</body>
+</html>
